@@ -1,0 +1,56 @@
+# data preprocessing
+USER_ID_FIELD: userID
+ITEM_ID_FIELD: assessmentItemID
+RATING_FIELD: answerCode
+TIME_FIELD: Timestamp
+
+load_col:
+    inter: [userID, assessmentItemID, answerCode, Timestamp]
+    user: [userID]
+    item: [assessmentItemID, testId, KnowledgeTag]
+
+user_inter_num_interval: "[0,inf)"
+item_inter_num_interval: "[0,inf)"
+val_interval:
+    answerCode: "[0,1]"
+    Timestamp: "[97830000, inf)"
+
+# general
+gpu_id: 0
+use_gpu: True
+seed: 2020
+state: INFO
+reproducibility: True
+data_path: 'dataset/dkt'
+checkpoint_dir: 'saved'
+show_progress: True
+save_dataset: True
+dataset_save_path: ~
+save_dataloaders: True
+dataloaders_save_path: ~
+
+log_wandb: True
+wandb_project: 'recbole'
+wandb_team: 'iksadnorth'
+
+device: 'cuda'
+
+# training settings
+learner: adam
+learning_rate: 0.001
+eval_step: 1
+stopping_step: 10
+clip_grad_norm: ~
+# clip_grad_norm:  {'max_norm': 5, 'norm_type': 2}
+weight_decay: 0.0
+loss_decimal_place: 4
+require_pow: False
+
+# evaluation settings
+repeatable: False
+metrics: ["AUC", "RMSE", "LogLoss"]
+# topk: [10]
+valid_metric: RMSE
+valid_metric_bigger: True
+eval_batch_size: 1024
+metric_decimal_place: 4

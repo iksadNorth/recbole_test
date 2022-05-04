@@ -1,0 +1,11 @@
+/dataset/dkt/submission/**
+/dataset/dkt/target/**
+/dataset/dkt/test/**
+/dataset/dkt/train/**
+
+/log/
+/log_tensorboard/
+
+/saved/
+/wandb/
+

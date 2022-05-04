@@ -1,0 +1,13 @@
+wandb_name: ~
+
+train_batch_size: 32
+epochs: 1
+
+neg_sampling: 
+  popularity: 1
+
+eval_args: 
+  split: {'RS':[0.8,0.1,0.1]}
+  group_by: user
+  order: RO
+  mode: pop5
